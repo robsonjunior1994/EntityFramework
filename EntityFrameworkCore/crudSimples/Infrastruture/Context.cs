@@ -27,6 +27,12 @@ namespace crudSimples.Infrastruture
             //    .Entity<Endereco>()
             //    .HasKey("ClienteId");
 
+            /************* Configuração para modificar nome da tabela, para as tabelas que não são manipuladas via propriedades DbSet<...>... ***************/
+            modelBuilder
+                .Entity<Endereco>()
+                .ToTable("Enderecos");
+
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EntityFrameDB;Trusted_Connection=true;");
