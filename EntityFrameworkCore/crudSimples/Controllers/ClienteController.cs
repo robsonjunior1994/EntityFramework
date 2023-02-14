@@ -10,13 +10,17 @@ namespace crudSimples.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
+        //Esse é um CRUD que representa um relacinamento 1:1
         Context context = new Context();
 
         [Route("All")]
         [HttpGet]
         public IActionResult Get()
         {
-            IList<Cliente> clientes = context.Clientes.Include(c => c.Endereco).ToList();
+            IList<Cliente> clientes = context
+                                        .Clientes
+                                        .Include(c => c.Endereco)
+                                        .ToList();
             return Ok(clientes);
         }
 
