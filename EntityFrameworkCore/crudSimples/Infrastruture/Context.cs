@@ -32,15 +32,7 @@ namespace crudSimples.Infrastruture
             /************* Configuração para modificar nome da tabela, para as tabelas que não são manipuladas via propriedades DbSet<...>... ***************/
             modelBuilder
                 .Entity<Endereco>()
-                .ToTable("Enderecos");
-
-            /************* 03 - forma de realizar a configuração de 1:N ***************/
-            //Com essa configuração eu devo ter a propriedade Id.
-            //modelBuilder
-            //    .Entity<Compra>()
-            //    .HasMany(c => c.Produtos)
-            //    .WithOne("Produto")
-            //    .HasForeignKey("Produto");                
+                .ToTable("Enderecos");           
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EntityFrameDB;Trusted_Connection=true;");
