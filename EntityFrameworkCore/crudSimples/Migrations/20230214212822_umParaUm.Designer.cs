@@ -11,8 +11,8 @@ using crudSimples.Infrastruture;
 namespace crudSimples.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230209012406_primeira")]
-    partial class primeira
+    [Migration("20230214212822_umParaUm")]
+    partial class umParaUm
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace crudSimples.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EntityFrameworkCore.Models.Cliente", b =>
+            modelBuilder.Entity("crudSimples.Models.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace crudSimples.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("EntityFrameworkCore.Models.Endereco", b =>
+            modelBuilder.Entity("crudSimples.Models.Endereco", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -68,19 +68,19 @@ namespace crudSimples.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Endereco");
+                    b.ToTable("Enderecos", (string)null);
                 });
 
-            modelBuilder.Entity("EntityFrameworkCore.Models.Endereco", b =>
+            modelBuilder.Entity("crudSimples.Models.Endereco", b =>
                 {
-                    b.HasOne("EntityFrameworkCore.Models.Cliente", null)
+                    b.HasOne("crudSimples.Models.Cliente", null)
                         .WithOne("Endereco")
-                        .HasForeignKey("EntityFrameworkCore.Models.Endereco", "Id")
+                        .HasForeignKey("crudSimples.Models.Endereco", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EntityFrameworkCore.Models.Cliente", b =>
+            modelBuilder.Entity("crudSimples.Models.Cliente", b =>
                 {
                     b.Navigation("Endereco")
                         .IsRequired();

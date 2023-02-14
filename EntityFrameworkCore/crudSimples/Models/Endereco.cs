@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EntityFrameworkCore.Models
+﻿namespace crudSimples.Models
 {
     public class Endereco
     {

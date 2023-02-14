@@ -5,7 +5,7 @@
 namespace crudSimples.Migrations
 {
     /// <inheritdoc />
-    public partial class primeira : Migration
+    public partial class umParaUm : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,7 +24,7 @@ namespace crudSimples.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Endereco",
+                name: "Enderecos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -36,9 +36,9 @@ namespace crudSimples.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Endereco", x => x.Id);
+                    table.PrimaryKey("PK_Enderecos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Endereco_Clientes_Id",
+                        name: "FK_Enderecos_Clientes_Id",
                         column: x => x.Id,
                         principalTable: "Clientes",
                         principalColumn: "Id",
@@ -50,7 +50,7 @@ namespace crudSimples.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Endereco");
+                name: "Enderecos");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

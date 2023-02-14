@@ -1,4 +1,4 @@
-﻿using EntityFrameworkCore.Models;
+﻿using crudSimples.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace crudSimples.Infrastruture
@@ -6,6 +6,8 @@ namespace crudSimples.Infrastruture
     public class Context : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,7 +34,13 @@ namespace crudSimples.Infrastruture
                 .Entity<Endereco>()
                 .ToTable("Enderecos");
 
-
+            /************* 03 - forma de realizar a configuração de 1:N ***************/
+            //Com essa configuração eu devo ter a propriedade Id.
+            //modelBuilder
+            //    .Entity<Compra>()
+            //    .HasMany(c => c.Produtos)
+            //    .WithOne("Produto")
+            //    .HasForeignKey("Produto");                
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EntityFrameDB;Trusted_Connection=true;");

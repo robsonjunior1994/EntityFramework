@@ -1,9 +1,10 @@
 ﻿namespace crudSimples.Models
 {
-    public class Cliente
+    public class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public Endereco Endereco { get; set; }
+        public double Preco { get; set; }
+
     }
 }
