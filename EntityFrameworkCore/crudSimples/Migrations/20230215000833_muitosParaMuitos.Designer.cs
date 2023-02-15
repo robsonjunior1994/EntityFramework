@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crudSimples.Infrastruture;
 
@@ -11,9 +12,11 @@ using crudSimples.Infrastruture;
 namespace crudSimples.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230215000833_muitosParaMuitos")]
+    partial class muitosParaMuitos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace crudSimples.Migrations
 
                     b.HasIndex("PromocaoId");
 
-                    b.ToTable("ProdutoPromocao", (string)null);
+                    b.ToTable("ProdutoPromocao");
                 });
 
             modelBuilder.Entity("crudSimples.Models.Cliente", b =>
@@ -51,7 +54,7 @@ namespace crudSimples.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes", (string)null);
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("crudSimples.Models.Compra", b =>
@@ -67,7 +70,7 @@ namespace crudSimples.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Compras", (string)null);
+                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("crudSimples.Models.Endereco", b =>
@@ -122,7 +125,7 @@ namespace crudSimples.Migrations
 
                     b.HasIndex("CompraId");
 
-                    b.ToTable("Produtos", (string)null);
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("crudSimples.Models.Promocao", b =>
@@ -139,13 +142,9 @@ namespace crudSimples.Migrations
                     b.Property<DateTime>("Inicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Promocao", (string)null);
+                    b.ToTable("Promocao");
                 });
 
             modelBuilder.Entity("ProdutoPromocao", b =>
